@@ -5,11 +5,8 @@ import ServicesGrid from '../components/ServicesGrid';
 import Features from '../components/Features';
 import Steps from '../components/Steps';
 import ProjectsGrid from '../components/ProjectsGrid';
-import Testimonials from '../components/Testimonials';
 import CtaBanner from '../components/CtaBanner';
 
-// ГЛАВНАЯ СТРАНИЦА
-// Порядок блоков легко менять — просто переставьте строки местами.
 export default function HomePage() {
   return (
     <>
@@ -20,7 +17,6 @@ export default function HomePage() {
       <Features />
       <Steps />
       <ProjectsGrid limit={3} />
-      <Testimonials />
       <CtaBanner />
     </>
   );

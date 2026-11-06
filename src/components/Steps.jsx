@@ -1,8 +1,9 @@
 import { steps } from '../data/content';
 
-// ЭТАПЫ РАБОТЫ
-// Показывает, как выстроен процесс от заявки до результата.
-export default function Steps({ title = 'Как мы работаем', subtitle = 'Прозрачный процесс из четырёх шагов' }) {
+export default function Steps({
+  title = 'Как строится работа над проектом',
+  subtitle = 'Основные этапы от постановки задачи до проверки результата',
+}) {
   return (
     <section className="section section--alt">
       <div className="container">

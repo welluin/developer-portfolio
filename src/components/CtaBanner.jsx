@@ -1,15 +1,12 @@
 import { useNavigation } from '../router/navigation';
 
-// ПРИЗЫВ К ДЕЙСТВИЮ (CTA-баннер)
-// Тёмная полоса в конце страницы с кнопкой перехода.
-// Props: title, text, buttonLabel, buttonPage.
 export default function CtaBanner({
-  title = 'Готовы обсудить ваш проект?',
-  text = 'Оставьте заявку — свяжемся, уточним детали и пришлём смету.',
-  buttonLabel = 'Оставить заявку',
-  buttonPage = 'contacts',
-  secondaryLabel,
-  secondaryPage,
+  title = 'Посмотрим проекты подробнее?',
+  text = 'Исходный код, описание и используемые технологии доступны в моём GitHub.',
+  buttonLabel = 'Открыть GitHub',
+  buttonPage = 'portfolio',
+  secondaryLabel = 'Связаться',
+  secondaryPage = 'contacts',
 }) {
   const { go } = useNavigation();
 

@@ -1,24 +1,39 @@
 import PageHeader from '../components/PageHeader';
 import ServicesGrid from '../components/ServicesGrid';
 import Steps from '../components/Steps';
-import Pricing from '../components/Pricing';
-import Faq from '../components/Faq';
+import Features from '../components/Features';
 import CtaBanner from '../components/CtaBanner';
 
-// СТРАНИЦА «УСЛУГИ»
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
-        badge="Что мы делаем"
-        title="Услуги"
-        subtitle="От лендинга до веб-приложения: выберите формат, а мы подберём состав работ и сроки."
+        badge="Направления"
+        title="Направления разработки"
+        subtitle="Основные области, инструменты и задачи, представленные в моих проектах."
       />
-      <ServicesGrid title="Все направления" subtitle="Полный список услуг и ориентировочные цены" />
-      <Steps />
-      <Pricing />
-      <Faq />
-      <CtaBanner title="Не нашли нужную услугу?" text="Расскажите о задаче — предложим решение и посчитаем стоимость." />
+
+      <ServicesGrid
+        title="С чем я работаю"
+        subtitle="От пользовательского интерфейса до серверной логики и тестирования"
+      />
+
+      <Steps
+        title="Подход к разработке"
+        subtitle="Последовательность основных этапов работы над задачей"
+      />
+
+      <Features
+        title="Мой подход"
+        subtitle="Что считаю важным при создании программных продуктов"
+      />
+
+      <CtaBanner
+        title="Посмотрите реализованные проекты"
+        text="В портфолио можно изучить примеры задач, исходный код и используемые технологии."
+        buttonLabel="Перейти к проектам"
+        buttonPage="portfolio"
+      />
     </>
   );
 }

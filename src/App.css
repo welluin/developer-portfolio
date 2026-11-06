@@ -1,35 +1,48 @@
+
 /* ========================================================
-   НЕЙТРАЛЬНЫЙ СЕРЫЙ WIREFRAME (ПРОТОТИП МНОГОСТРАНИЧНОГО САЙТА)
-   ========================================================
-   Все цвета вынесены в переменные ниже — чтобы перекрасить сайт,
-   достаточно поменять их в одном месте (:root).
+   DIGITAL PORTFOLIO — CLEAN STYLES
+   Холодная светлая палитра с синим акцентом
    ======================================================== */
 
 :root {
-  --c-900: #18181b;
-  --c-800: #27272a;
-  --c-700: #3f3f46;
-  --c-600: #52525b;
-  --c-500: #71717a;
-  --c-400: #a1a1aa;
-  --c-300: #d4d4d8;
-  --c-200: #e4e4e7;
-  --c-100: #f4f4f5;
-  --c-50: #fafafa;
+  /* Основные цвета */
+  --c-900: #202b3a;
+  --c-800: #34445a;
+  --c-700: #50627a;
+  --c-600: #65758a;
+  --c-500: #8795a7;
+  --c-400: #aab8c9;
+  --c-300: #ccd6e2;
+  --c-200: #e1e8f0;
+  --c-100: #edf2f8;
+  --c-50: #f7f9fc;
   --c-white: #ffffff;
 
-  --radius: 8px;
-  --radius-sm: 6px;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  /* Акцент */
+  --accent: #6689b5;
+  --accent-hover: #5276a3;
+  --accent-light: #e8eff8;
+  --accent-border: #cbd9e9;
+
+  /* Оформление */
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 5px 20px rgba(32, 43, 58, 0.06);
+  --shadow-hover: 0 12px 28px rgba(32, 43, 58, 0.10);
 }
+
+/* ========================================================
+   БАЗОВЫЕ СТИЛИ
+   ======================================================== */
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
   color: var(--c-800);
   background-color: var(--c-50);
+  line-height: 1.65;
 }
 
-/* ---------- Каркас страницы ---------- */
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -53,9 +66,10 @@ body {
 /* ========================================================
    КНОПКИ
    ======================================================== */
+
 .btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 13px 25px;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -63,54 +77,74 @@ body {
   border: 1px solid transparent;
   cursor: pointer;
   text-align: center;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn-primary {
-  background-color: var(--c-800);
-  color: var(--c-white);
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: var(--c-700);
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(82, 118, 163, 0.22);
 }
 
 .btn-secondary {
-  background-color: var(--c-200);
-  color: var(--c-900);
-}
-
-.btn-secondary:hover {
-  background-color: var(--c-300);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border-color: var(--c-400);
+  background-color: var(--accent-light);
+  border-color: var(--accent-light);
   color: var(--c-800);
 }
 
+.btn-secondary:hover {
+  background-color: #dce7f3;
+  border-color: #dce7f3;
+  color: var(--c-900);
+}
+
+.btn-outline {
+  background-color: #ffffff;
+  border-color: var(--accent-border);
+  color: var(--accent-hover);
+}
+
 .btn-outline:hover {
-  background-color: var(--c-100);
+  background-color: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--c-900);
 }
 
 .btn-light {
-  background-color: var(--c-white);
+  background-color: #ffffff;
+  border-color: #ffffff;
   color: var(--c-900);
 }
 
 .btn-light:hover {
-  background-color: var(--c-200);
+  background-color: var(--c-100);
+  border-color: var(--c-100);
+  color: var(--c-900);
 }
 
 .btn-ghost {
   background-color: transparent;
-  border-color: var(--c-500);
-  color: var(--c-white);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
 }
 
 .btn-ghost:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .btn-sm {
@@ -124,8 +158,9 @@ body {
 }
 
 /* ========================================================
-   ОБЩИЕ БЛОКИ И СЕТКИ
+   ОБЩИЕ СЕКЦИИ И СЕТКИ
    ======================================================== */
+
 .section {
   padding: 72px 0;
 }
@@ -149,10 +184,11 @@ body {
   font-size: 28px;
   color: var(--c-900);
   margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
 .section-header p {
-  color: var(--c-500);
+  color: var(--c-600);
   font-size: 16px;
 }
 
@@ -178,7 +214,6 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* Две колонки: текст + картинка (используется на «О нас» и «Контактах») */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -189,6 +224,8 @@ body {
 .split--wide {
   grid-template-columns: 1.05fr 0.95fr;
 }
+
+/* Текстовые блоки */
 
 .prose h2 {
   font-size: 26px;
@@ -201,10 +238,11 @@ body {
   margin-bottom: 14px;
 }
 
-/* Заглушка под картинку */
+/* Заглушки изображений */
+
 .ph {
-  background-color: var(--c-200);
-  border: 1px dashed var(--c-400);
+  background-color: var(--c-100);
+  border: 1px dashed var(--c-300);
   color: var(--c-500);
   display: flex;
   align-items: center;
@@ -227,23 +265,27 @@ body {
   aspect-ratio: 1 / 1;
 }
 
+/* Плашки */
+
 .badge {
   display: inline-block;
-  background-color: var(--c-200);
-  color: var(--c-600);
+  background-color: var(--accent-light);
+  color: var(--accent-hover);
+  border: 1px solid var(--accent-border);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   margin-bottom: 16px;
 }
 
 /* ========================================================
-   ШАПКА (HEADER)
+   ШАПКА
    ======================================================== */
+
 .header {
-  background-color: var(--c-white);
+  background-color: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--c-200);
   position: sticky;
   top: 0;
@@ -292,27 +334,28 @@ body {
 .nav-link {
   background: none;
   border: none;
-  padding: 0;
+  padding: 0 0 2px;
   cursor: pointer;
   font-size: 15px;
   font-weight: 500;
   color: var(--c-600);
   border-bottom: 2px solid transparent;
-  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.nav-link:hover {
-  color: var(--c-900);
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--accent-hover);
 }
 
 .nav-link.is-active {
-  color: var(--c-900);
-  border-bottom-color: var(--c-900);
+  border-bottom-color: var(--accent);
 }
 
 /* ========================================================
-   ПЕРВЫЙ ЭКРАН ГЛАВНОЙ (HERO)
+   ПЕРВЫЙ ЭКРАН — HERO
    ======================================================== */
+
 .hero-section {
   padding: 80px 0;
   background-color: var(--c-100);
@@ -330,13 +373,15 @@ body {
   font-size: 38px;
   font-weight: 800;
   color: var(--c-900);
-  line-height: 1.22;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
   margin-bottom: 18px;
 }
 
 .hero-description {
   font-size: 17px;
   color: var(--c-600);
+  line-height: 1.8;
   margin-bottom: 30px;
 }
 
@@ -347,8 +392,9 @@ body {
 }
 
 /* ========================================================
-   ЗАГОЛОВОК ВНУТРЕННЕЙ СТРАНИЦЫ
+   ЗАГОЛОВКИ ВНУТРЕННИХ СТРАНИЦ
    ======================================================== */
+
 .page-header {
   padding: 56px 0 48px;
   background-color: var(--c-100);
@@ -375,13 +421,14 @@ body {
 }
 
 .breadcrumbs button:hover {
-  color: var(--c-900);
+  color: var(--accent-hover);
 }
 
 .page-title {
   font-size: 34px;
   font-weight: 800;
   color: var(--c-900);
+  letter-spacing: -0.5px;
   margin-bottom: 12px;
 }
 
@@ -389,11 +436,13 @@ body {
   font-size: 16px;
   color: var(--c-600);
   max-width: 720px;
+  line-height: 1.8;
 }
 
 /* ========================================================
-   ЦИФРЫ / ФАКТЫ (STATS)
+   ЦИФРЫ И ФАКТЫ
    ======================================================== */
+
 .stats-section {
   padding: 40px 0;
   background-color: var(--c-white);
@@ -408,13 +457,13 @@ body {
 
 .stat-card {
   padding: 20px;
-  border-left: 3px solid var(--c-500);
+  border-left: 3px solid var(--accent);
 }
 
 .stat-number {
   font-size: 26px;
   font-weight: 800;
-  color: var(--c-900);
+  color: var(--accent-hover);
   margin-bottom: 4px;
 }
 
@@ -427,12 +476,13 @@ body {
 
 .stat-text {
   font-size: 13px;
-  color: var(--c-500);
+  color: var(--c-600);
 }
 
 /* ========================================================
-   ПОЛОСА КЛИЕНТОВ
+   ПОЛОСА ТЕХНОЛОГИЙ
    ======================================================== */
+
 .logo-strip-title {
   text-align: center;
   font-size: 13px;
@@ -449,18 +499,19 @@ body {
 }
 
 .logo-item {
-  border: 1px solid var(--c-300);
+  border: 1px solid var(--c-200);
   border-radius: var(--radius-sm);
   background-color: var(--c-white);
   padding: 18px 12px;
   text-align: center;
   font-size: 13px;
-  color: var(--c-500);
+  color: var(--c-700);
 }
 
 /* ========================================================
-   КАРТОЧКИ: УСЛУГИ / ПРОЕКТЫ
+   КАРТОЧКИ УСЛУГ И ПРОЕКТОВ
    ======================================================== */
+
 .service-card,
 .project-card {
   background-color: var(--c-white);
@@ -475,14 +526,14 @@ body {
 .service-card:hover,
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-hover);
 }
 
 .card-image,
 .project-image {
   border-radius: 0;
   border: none;
-  border-bottom: 1px solid var(--c-300);
+  border-bottom: 1px solid var(--c-200);
 }
 
 .card-body {
@@ -508,8 +559,8 @@ body {
 .card-tag {
   display: inline-block;
   align-self: flex-start;
-  background-color: var(--c-100);
-  color: var(--c-600);
+  background-color: var(--accent-light);
+  color: var(--accent-hover);
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 12px;
@@ -538,6 +589,7 @@ body {
 /* ========================================================
    ЭТАПЫ РАБОТЫ
    ======================================================== */
+
 .step-card {
   background-color: var(--c-white);
   border: 1px solid var(--c-200);
@@ -548,7 +600,7 @@ body {
 .step-number {
   font-size: 14px;
   font-weight: 800;
-  color: var(--c-500);
+  color: var(--accent);
   letter-spacing: 1px;
   margin-bottom: 12px;
 }
@@ -567,6 +619,7 @@ body {
 /* ========================================================
    ПРЕИМУЩЕСТВА
    ======================================================== */
+
 .feature-card {
   background-color: var(--c-white);
   border: 1px solid var(--c-200);
@@ -580,10 +633,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--c-300);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-sm);
-  background-color: var(--c-100);
-  color: var(--c-600);
+  background-color: var(--accent-light);
+  color: var(--accent-hover);
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -601,13 +654,14 @@ body {
 }
 
 /* ========================================================
-   ДО / ПОСЛЕ
+   СРАВНЕНИЕ ДО / ПОСЛЕ
    ======================================================== */
+
 .comparison-mockup {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   height: 280px;
-  border: 2px dashed var(--c-400);
+  border: 2px dashed var(--c-300);
   border-radius: var(--radius);
   background-color: var(--c-white);
   overflow: hidden;
@@ -619,7 +673,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  color: var(--c-500);
+  color: var(--c-600);
   text-align: center;
   padding: 20px;
 }
@@ -629,7 +683,7 @@ body {
 }
 
 .comparison-half.after {
-  background-color: var(--c-200);
+  background-color: var(--accent-light);
 }
 
 .comparison-badge {
@@ -654,8 +708,9 @@ body {
 }
 
 /* ========================================================
-   КОМАНДА
+   КОМАНДА / ПРОФИЛЬ
    ======================================================== */
+
 .team-card {
   background-color: var(--c-white);
   border: 1px solid var(--c-200);
@@ -681,7 +736,7 @@ body {
 .team-role {
   font-size: 13px;
   font-weight: 600;
-  color: var(--c-500);
+  color: var(--accent-hover);
   margin-bottom: 10px;
 }
 
@@ -693,6 +748,7 @@ body {
 /* ========================================================
    ОТЗЫВЫ
    ======================================================== */
+
 .testimonial-card {
   background-color: var(--c-white);
   border: 1px solid var(--c-200);
@@ -740,6 +796,7 @@ body {
 /* ========================================================
    ТАРИФЫ
    ======================================================== */
+
 .pricing-card {
   position: relative;
   background-color: var(--c-white);
@@ -751,7 +808,7 @@ body {
 }
 
 .pricing-card.is-featured {
-  border-color: var(--c-800);
+  border-color: var(--accent);
   border-width: 2px;
   box-shadow: var(--shadow);
 }
@@ -760,7 +817,7 @@ body {
   position: absolute;
   top: -12px;
   left: 28px;
-  background-color: var(--c-800);
+  background-color: var(--accent);
   color: var(--c-white);
   font-size: 11px;
   font-weight: 700;
@@ -800,8 +857,9 @@ body {
 }
 
 /* ========================================================
-   FAQ (работает на встроенном <details>)
+   FAQ
    ======================================================== */
+
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -835,7 +893,7 @@ body {
 .faq-question::after {
   content: '+';
   font-size: 20px;
-  color: var(--c-500);
+  color: var(--accent);
   flex: none;
 }
 
@@ -852,6 +910,7 @@ body {
 /* ========================================================
    CTA-БАННЕР
    ======================================================== */
+
 .cta-banner {
   background-color: var(--c-900);
   color: var(--c-white);
@@ -865,11 +924,12 @@ body {
 
 .cta-title {
   font-size: 24px;
+  color: var(--c-white);
   margin-bottom: 8px;
 }
 
 .cta-text {
-  color: var(--c-400);
+  color: #c5d2e2;
   font-size: 15px;
   max-width: 560px;
 }
@@ -882,8 +942,9 @@ body {
 }
 
 /* ========================================================
-   ФОРМЫ
+   ФОРМЫ И КАЛЬКУЛЯТОР
    ======================================================== */
+
 .calc-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -948,6 +1009,8 @@ body {
   font-size: 14px;
   outline: none;
   background-color: var(--c-50);
+  color: var(--c-800);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-group textarea {
@@ -957,8 +1020,9 @@ body {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--c-500);
+  border-color: var(--accent);
   background-color: var(--c-white);
+  box-shadow: 0 0 0 3px rgba(102, 137, 181, 0.12);
 }
 
 .form-row {
@@ -976,7 +1040,7 @@ body {
 
 .form-note {
   font-size: 12px;
-  color: var(--c-400);
+  color: var(--c-500);
   margin-top: 12px;
   text-align: center;
 }
@@ -1002,7 +1066,7 @@ body {
 
 .check-item input {
   width: auto;
-  accent-color: var(--c-800);
+  accent-color: var(--accent);
 }
 
 .check-price {
@@ -1012,8 +1076,9 @@ body {
 }
 
 /* ========================================================
-   РЕЗУЛЬТАТ РАСЧЁТА (заглушка)
+   РЕЗУЛЬТАТ РАСЧЁТА
    ======================================================== */
+
 .result-card {
   background-color: var(--c-white);
   border: 1px solid var(--c-200);
@@ -1043,12 +1108,13 @@ body {
 .result-value {
   font-size: 30px;
   font-weight: 800;
-  color: var(--c-900);
+  color: var(--accent-hover);
 }
 
 /* ========================================================
    КОНТАКТЫ
    ======================================================== */
+
 .contact-info h2 {
   font-size: 26px;
   color: var(--c-900);
@@ -1089,6 +1155,7 @@ body {
 }
 
 a.contact-row-value:hover {
+  color: var(--accent-hover);
   text-decoration: underline;
 }
 
@@ -1097,16 +1164,17 @@ a.contact-row-value:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--c-200);
-  border: 2px dashed var(--c-400);
+  background-color: var(--c-100);
+  border: 2px dashed var(--c-300);
   border-radius: var(--radius);
   color: var(--c-500);
   font-size: 14px;
 }
 
 /* ========================================================
-   404
+   СТРАНИЦА 404
    ======================================================== */
+
 .not-found {
   text-align: center;
   padding: 100px 0;
@@ -1125,11 +1193,12 @@ a.contact-row-value:hover {
 }
 
 /* ========================================================
-   ПОДВАЛ (FOOTER)
+   ПОДВАЛ
    ======================================================== */
+
 .footer {
   background-color: var(--c-900);
-  color: var(--c-400);
+  color: #c5d2e2;
   padding: 48px 0 24px;
   font-size: 14px;
 }
@@ -1139,7 +1208,7 @@ a.contact-row-value:hover {
   grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 32px;
-  border-bottom: 1px solid #2f2f33;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .footer-logo {
@@ -1150,7 +1219,7 @@ a.contact-row-value:hover {
 }
 
 .footer-about {
-  color: var(--c-400);
+  color: #c5d2e2;
   font-size: 14px;
   margin-bottom: 16px;
   max-width: 380px;
@@ -1162,6 +1231,7 @@ a.contact-row-value:hover {
 }
 
 .footer-contact:hover {
+  color: #bcd4f1;
   text-decoration: underline;
 }
 
@@ -1183,7 +1253,7 @@ a.contact-row-value:hover {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: var(--c-400);
+  color: #c5d2e2;
   font-size: 14px;
   text-align: left;
 }
@@ -1202,8 +1272,21 @@ a.contact-row-value:hover {
 }
 
 /* ========================================================
+   ОБЩИЕ СОСТОЯНИЯ И ССЫЛКИ
+   ======================================================== */
+
+a {
+  transition: color 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ========================================================
    АДАПТИВНОСТЬ
    ======================================================== */
+
 @media (max-width: 1024px) {
   .grid--4,
   .stats-grid,
@@ -1289,8 +1372,21 @@ a.contact-row-value:hover {
     grid-template-columns: 1fr;
   }
 
+  .hero-title {
+    font-size: 29px;
+    letter-spacing: -0.6px;
+  }
+
   .hero-actions .btn {
     width: 100%;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .card-body {
+    padding: 20px;
   }
 
   .footer-grid {
@@ -1301,4 +1397,75 @@ a.contact-row-value:hover {
     flex-direction: column;
     text-align: center;
   }
+
+  .project-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #edf3fc;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-image-placeholder {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #5276ad;
+  font-weight: 600;
+}
+
+/* Изображения в карточках «С чем я работаю» */
+
+.card-image-placeholder {
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.service-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .card-image-placeholder {
+    height: 200px;
+  }
+}
+.about-image {
+  width: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+.card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 }

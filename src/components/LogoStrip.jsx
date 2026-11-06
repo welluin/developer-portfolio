@@ -1,8 +1,6 @@
 import { clients } from '../data/content';
 
-// ПОЛОСА КЛИЕНТОВ / ЛОГОТИПОВ
-// Просто ряд серых заглушек, чтобы показать, что вам доверяют.
-export default function LogoStrip({ title = 'Нам доверяют' }) {
+export default function LogoStrip({ title = 'Технологии и инструменты' }) {
   return (
     <section className="section section--tight section--alt">
       <div className="container">

@@ -1,8 +1,9 @@
 import { features } from '../data/content';
 
-// ПРЕИМУЩЕСТВА («Почему мы»)
-// Сетка коротких причин выбрать именно вас.
-export default function Features({ title = 'Почему выбирают нас', subtitle = 'Шесть причин работать с нами' }) {
+export default function Features({
+  title = 'Подход к разработке',
+  subtitle = 'Принципы, которые использую в работе над проектами',
+}) {
   return (
     <section className="section">
       <div className="container">

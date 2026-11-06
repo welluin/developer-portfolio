@@ -27,7 +27,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="ph ph--4x3 hero-visual">{hero.visual}</div>
+        <div className="hero-visual">
+          <img
+            src="/images/hero-development.png"
+            alt="Рабочее пространство разработчика"
+          />
+        </div>
       </div>
     </section>
   );

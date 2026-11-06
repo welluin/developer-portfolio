@@ -1,35 +1,30 @@
 import PageHeader from '../components/PageHeader';
-import Calculator from '../components/Calculator';
-import Faq from '../components/Faq';
+import LogoStrip from '../components/LogoStrip';
+import ServicesGrid from '../components/ServicesGrid';
 import CtaBanner from '../components/CtaBanner';
-import { calculator } from '../data/content';
 
-// СТРАНИЦА «КАЛЬКУЛЯТОР»
 export default function CalculatorPage() {
   return (
     <>
       <PageHeader
-        badge="Оценка проекта"
-        title="Калькулятор"
-        subtitle="Прикиньте бюджет и сроки ещё до звонка. Форма сейчас работает как макет."
+        badge="Инструменты"
+        title="Технологии"
+        subtitle="Языки программирования, библиотеки и инструменты, которые использую в учебных и личных проектах."
       />
-      <Calculator />
 
-      {/* Заглушка «результата расчёта». Значение меняется в content.js. */}
-      <section className="section section--tight">
-        <div className="container">
-          <div className="result-card">
-            <div>
-              <div className="result-label">Предварительная стоимость</div>
-              <p className="result-note">{calculator.resultNote}</p>
-            </div>
-            <div className="result-value">{calculator.resultValue}</div>
-          </div>
-        </div>
-      </section>
+      <LogoStrip title="Технологический стек" />
 
-      <Faq title="Вопросы про расчёт" subtitle="Что важно знать о смете" />
-      <CtaBanner title="Готовы к точной смете?" text="Отправьте параметры — посчитаем стоимость под ваш проект." />
+      <ServicesGrid
+        title="Области применения"
+        subtitle="Как технологии используются в разработке"
+      />
+
+      <CtaBanner
+        title="Технологии в реальных проектах"
+        text="Посмотрите, какие инструменты использованы в каждом из представленных проектов."
+        buttonLabel="Посмотреть проекты"
+        buttonPage="portfolio"
+      />
     </>
   );
 }

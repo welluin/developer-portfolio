@@ -1,11 +1,8 @@
 import { useNavigation } from '../router/navigation';
 import { site } from '../data/site';
 
-// Текущий год берём один раз при загрузке модуля (а не во время отрисовки).
 const CURRENT_YEAR = new Date().getFullYear();
 
-// ПОДВАЛ САЙТА (FOOTER)
-// Описание проекта, колонки ссылок и строка с копирайтом.
 export default function Footer() {
   const { go } = useNavigation();
   const { about, columns, copyright, author } = site.footer;
@@ -19,6 +16,9 @@ export default function Footer() {
           <a className="footer-contact" href={site.contacts.telegramUrl}>
             {site.contacts.telegram}
           </a>
+          <a className="footer-contact" href={`mailto:${site.contacts.email}`}>
+            {site.contacts.email}
+          </a>
         </div>
 
         {columns.map((column) => (
@@ -27,13 +27,17 @@ export default function Footer() {
             <ul>
               {column.links.map((link) => (
                 <li key={link.label}>
-                  {/* Внутренняя ссылка (page) или внешняя (href) */}
                   {link.page ? (
                     <button className="footer-link" onClick={() => go(link.page)}>
                       {link.label}
                     </button>
                   ) : (
-                    <a className="footer-link" href={link.href}>
+                    <a
+                      className="footer-link"
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {link.label}
                     </a>
                   )}
