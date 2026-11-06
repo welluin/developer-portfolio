@@ -1,10 +1,12 @@
+
 import { useNavigation } from '../router/navigation';
 
 export default function CtaBanner({
   title = 'Посмотрим проекты подробнее?',
   text = 'Исходный код, описание и используемые технологии доступны в моём GitHub.',
-  buttonLabel = 'Открыть GitHub',
+  buttonLabel = 'Посмотреть проекты',
   buttonPage = 'portfolio',
+  buttonUrl,
   secondaryLabel = 'Связаться',
   secondaryPage = 'contacts',
 }) {
@@ -18,12 +20,31 @@ export default function CtaBanner({
             <h2 className="cta-title">{title}</h2>
             <p className="cta-text">{text}</p>
           </div>
+
           <div className="cta-actions">
-            <button className="btn btn-light" onClick={() => go(buttonPage)}>
-              {buttonLabel}
-            </button>
+            {buttonUrl ? (
+              <a
+                className="btn btn-light"
+                href={buttonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {buttonLabel}
+              </a>
+            ) : (
+              <button
+                className="btn btn-light"
+                onClick={() => go(buttonPage)}
+              >
+                {buttonLabel}
+              </button>
+            )}
+
             {secondaryLabel && (
-              <button className="btn btn-ghost" onClick={() => go(secondaryPage)}>
+              <button
+                className="btn btn-ghost"
+                onClick={() => go(secondaryPage)}
+              >
                 {secondaryLabel}
               </button>
             )}

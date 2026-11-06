@@ -56,7 +56,7 @@ export default function AboutPage() {
         title="Хотите узнать больше о моих проектах?"
         text="Посмотрите репозитории и технические детали реализации."
         buttonLabel="Мой GitHub"
-        buttonPage="portfolio"
+        buttonUrl="https://github.com/welluin"
       />
     </>
   );
